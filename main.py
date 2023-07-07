@@ -6,22 +6,14 @@ from selenium.webdriver.common.by import By
 with open('exsample.csv', 'r') as read_obj:
     csv_reader = reader(read_obj)
     list_of_rows = list(csv_reader)
-
-success_count = 0
-failure_count = 0
-failed_logins = []
-
 def Connecting_To_driver(email, password):
-    global success_count
-    global failure_count
-    global failed_logins
     if email != "" and password != "":
         try:
 
             c = webdriver.ChromeOptions()
             c.add_argument("--incognito")
             driver = webdriver.Chrome(options=c)
-            driver.get('https://my.exsample.com')
+            driver.get('https://www.exsample.com')
             time.sleep(4)
             driver.find_element(By.XPATH,"email").send_keys(email)
             time.sleep(1)
